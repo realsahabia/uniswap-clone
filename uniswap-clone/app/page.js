@@ -1,7 +1,10 @@
 import React from 'react'
+import { HeroSection } from './components/Index'
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <HeroSection accounts="hey" tokenData="DATA"/>
+    </div>
   )
 }

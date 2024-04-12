@@ -56,7 +56,7 @@ export default function Navbar() {
             <div className="NavBar_box_middle">
                 <div className="NavBar_box_middle_search">
                     <div className="NavBar_box_middle_search_img">
-                        <Image src={images.search} alt='search' width={100} height={100} />
+                        <Image src={images.search} alt='search' width={20} height={20} />
                         {/* //IMPUT SECTION */}
                     </div>
                     <input type='text' placeholder='Search Tokens' />
