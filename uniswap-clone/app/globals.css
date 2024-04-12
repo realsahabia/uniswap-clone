@@ -4,12 +4,18 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
+:root {
+  --color-imptext: #FFA500;  
+  --color-impbg: #033e6b;
+  --color-mainbg: #010c1f;
+  --color-mainbgt: #010c1fca;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-
-  background-color: #1F242E;
+  background-color: var(--color-mainbg);
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
 }
