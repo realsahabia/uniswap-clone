@@ -6,4 +6,4 @@ import Toggle from "./Toggle/Toggle";
 import Token from "./Token/Token";
 import TokenList from "./TokenList/TokenList";
 
-export { HeroSection, Model, Navbar, SearchToken, Toggle, TokenList }
+export { HeroSection, Model, Navbar, SearchToken, Toggle, TokenList, Token }
