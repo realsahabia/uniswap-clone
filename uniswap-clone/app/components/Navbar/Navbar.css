@@ -62,9 +62,9 @@
 .NavBar_box_right_box {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: .5rem;
     background-color: var(--color-impbg);
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem;
     border-radius: .5rem;
     cursor: pointer;
     text-transform: capitalize;

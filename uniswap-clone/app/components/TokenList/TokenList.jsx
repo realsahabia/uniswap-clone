@@ -5,7 +5,7 @@ import Image from "next/image"
 import "./TokenList.css"
 import images from "../../assets"
 
-export default function TokenList() {
+export default function TokenList({setOpenTokenBox}) {
 
     const data = [1, 2, 3, 4, 5, 6, 7]
 

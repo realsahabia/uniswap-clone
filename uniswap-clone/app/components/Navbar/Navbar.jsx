@@ -27,6 +27,7 @@ export default function Navbar() {
     //USESTATE
     const [openModel, setOpenModel] = useState(false)
     const [openTokenBox, setOpenTokenBox] = useState(false) 
+    const [account, setAccount] = useState(true)
 
   return (
     <div className="NavBar">
@@ -69,14 +70,18 @@ export default function Navbar() {
                     <div className="NavBar_box_right_box_img">
                         <Image src={images.ether} alt='Network' width={30} height={30} />
                     </div>
-                    <p>Network Name</p>
+                    <p>Network</p>
                 </div>
-                <button onClick={() => {setOpenModel(true)}}>Address</button>
-
-             {/* //MODEL SECTION */}
-                {openModel && (
-                    <Model setOpenModel={setOpenModel} connectWallet="Connect" />
-                )}
+                    {account ? (
+                            <button onClick={() => setOpenModel(true)}>Connect</button>
+                        ) :  (
+                            <button onClick={() => setOpenTokenBox(true)}>0Xsd1fa...</button>
+                        )
+                    }
+                    {/* //MODEL SECTION */}
+                        {openModel && (
+                            <Model setOpenModel={setOpenModel} connectWallet="Connect" />
+                    )}
             </div>
         </div>
          {/* //TOKENLIST COMPONENT */}
