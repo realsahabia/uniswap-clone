@@ -7,8 +7,12 @@ import Link from 'next/link'
 import "./Navbar.css"
 import images from "../../assets"
 import { Model, TokenList } from '../Index'
+import { use } from 'chai'
+import { SwapTokenContext } from '@/context/SwapContext'
 
 export default function Navbar() {
+    const {ether, account, networkConnect, connectWallet, tokenData} = useContext(SwapTokenContext)
+
     const menuItems = [
         {
             name: "Swap",
@@ -27,7 +31,7 @@ export default function Navbar() {
     //USESTATE
     const [openModel, setOpenModel] = useState(false)
     const [openTokenBox, setOpenTokenBox] = useState(false) 
-    const [account, setAccount] = useState(true)
+    // const [account, setAccount] = useState(true)
 
   return (
     <div className="NavBar">
@@ -70,23 +74,24 @@ export default function Navbar() {
                     <div className="NavBar_box_right_box_img">
                         <Image src={images.ether} alt='Network' width={30} height={30} />
                     </div>
-                    <p>Network</p>
+                    <p>{networkConnect}</p>
                 </div>
                     {account ? (
-                            <button onClick={() => setOpenModel(true)}>Connect</button>
+                            <button onClick={() => setOpenTokenBox(true)}>{account.slice(0, 15)}</button>
+
                         ) :  (
-                            <button onClick={() => setOpenTokenBox(true)}>0Xsd1fa...</button>
+                            <button onClick={() => setOpenModel(true)}>Connect</button>
                         )
                     }
                     {/* //MODEL SECTION */}
                         {openModel && (
-                            <Model setOpenModel={setOpenModel} connectWallet="Connect" />
+                            <Model setOpenModel={setOpenModel} connectWallet={connectWallet} />
                     )}
             </div>
         </div>
          {/* //TOKENLIST COMPONENT */}
          {openTokenBox && (
-            <TokenList tokenDate="hey" setOpenTokenBox={setOpenTokenBox} />
+            <TokenList tokenData={tokenData} setOpenTokenBox={setOpenTokenBox} />
         )}
     </div>
   )

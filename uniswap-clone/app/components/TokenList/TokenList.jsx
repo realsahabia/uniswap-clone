@@ -5,10 +5,18 @@ import Image from "next/image"
 import "./TokenList.css"
 import images from "../../assets"
 
-export default function TokenList({setOpenTokenBox}) {
+export default function TokenList({setOpenTokenBox, tokenData}) {
 
-    const data = [1, 2, 3, 4, 5, 6, 7]
+    // const data = [1, 2, 3, 4, 5, 6, 7]
+    console.log("tokenList", tokenData)
 
+    let tokenList = [];
+
+    for (let i = 0; i < tokenData.length; i++){
+      if (i % 2 == 1) {
+        tokenList.push(tokenData[i])
+      }      
+    }
   return (
     <div className="TokenList">
         <p 
@@ -20,12 +28,12 @@ export default function TokenList({setOpenTokenBox}) {
         <div className="TokenList_title">
             <h2>Your Token List</h2>
       </div>
-      {data.map((el, i) => (
+      {tokenList.map((el, i) => (
         <div className="TokenList_box">
           <div className="TokenList_box_info">
-            <span className="TokenList_box_info_symbol">34</span>
+            <span className="TokenList_box_info_symbol">{el.name}</span>
             <p>
-              GOLDEN ONE
+              <span>{el.tokenBalance}</span> {el.symbol}
             </p>
           </div>
         </div>

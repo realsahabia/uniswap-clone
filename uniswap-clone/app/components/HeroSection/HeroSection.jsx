@@ -7,11 +7,16 @@ import "./HeroSection.css"
 import images from "../../assets"
 import {Token, SearchToken} from "../Index";
 
+import { SwapTokenContext } from '@/context/SwapContext'
+
 export default function HeroSection({accounts, tokenData}) {
   //USESTATE
   const [openSetting, setOpenSetting] = useState(false);
   const [openToken, setOpenToken] = useState(false);
   const [openTokensTwo, setOpenTokensTwo] = useState(false);
+
+  const {account, connectWallet, singleSwapToken} = useContext(SwapTokenContext)
+
 
 
   //TOKEN 1
@@ -83,9 +88,9 @@ export default function HeroSection({accounts, tokenData}) {
         </div>
 
 
-        {!accounts ? (
+        {account ? (
           <button
-            onClick={() => swapToken()}
+            onClick={() => singleSwapToken()}
             className="HeroSection_box_btn"
           >
             Swap
